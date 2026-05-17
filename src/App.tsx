@@ -6,7 +6,8 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { router } from '@/routes'
 import '@/i18n'
-
+import api from '@/lib/api'
+import { useEffect } from 'react'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -32,7 +33,16 @@ function App() {
         </TooltipProvider>
       </QueryClientProvider>
     </ThemeProvider>
+    // App function ke andar
+// useEffect(() => {
+//   api.get('/db-test').then(res => console.log(res.data))
+// }, [])
+
   )
 }
 
 export default App
+
+
+
+
