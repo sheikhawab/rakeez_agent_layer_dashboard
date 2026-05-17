@@ -1,0 +1,160 @@
+{
+  "app": {
+    "name": "ميثاثي",
+    "tagline": "لوحة تحكم وكيل الصوت الذكي - ركيز"
+  },
+  "nav": {
+    "insights": "رؤى",
+    "configuration": "التكوين",
+    "overview": "النظرة العامة",
+    "calls": "المكالمات",
+    "callers": "المتصلون",
+    "bookings": "الحجوزات",
+    "costs": "التكاليف",
+    "prompts": "الموجهات",
+    "agent": "الوكيل",
+    "integrations": "التكاملات",
+    "settings": "الإعدادات"
+  },
+  "companies": {
+    "all": "كل الشركات",
+    "currentlyViewing": "تتم مشاهدة",
+    "switchCompany": "تبديل الشركة",
+    "searchPlaceholder": "ابحث عن شركة...",
+    "switchedTo": "تم التبديل إلى {{name}}",
+    "switchedToAll": "عرض كل الشركات"
+  },
+  "topbar": {
+    "search": "بحث",
+    "searchPlaceholder": "ابحث في الصفحات والمكالمات والحجوزات...",
+    "toggleTheme": "تبديل المظهر",
+    "toggleLanguage": "تبديل اللغة",
+    "notifications": "الإشعارات"
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "language": {
+    "english": "الإنجليزية",
+    "arabic": "العربية"
+  },
+  "actions": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "viewAll": "عرض الكل",
+    "retry": "إعادة المحاولة"
+  },
+  "notFound": {
+    "title": "404 — الصفحة غير موجودة",
+    "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "backToOverview": "العودة إلى النظرة العامة"
+  },
+  "common": {
+    "loading": "جارٍ التحميل...",
+    "noData": "لا توجد بيانات",
+    "error": "حدث خطأ ما"
+  },
+  "overview": {
+    "todaysPulse": "نبض اليوم",
+    "live": "مباشر",
+    "spent": "المصروف",
+    "companies": "الشركات",
+    "last24h": "آخر ٢٤ ساعة",
+    "activeNow": "نشط الآن",
+    "inProgress": "قيد التنفيذ",
+    "burnRate": "معدل الاستهلاك",
+    "allQuiet": "كل شيء هادئ",
+    "conversion": "التحويل",
+    "callsToBookings": "مكالمات ← حجوزات",
+    "avgDuration": "متوسط المدة",
+    "costPerBooking": "تكلفة الحجز",
+    "costTrend": "اتجاه التكاليف",
+    "languageSplit": "توزيع اللغات",
+    "topCompanies": "أبرز الشركات",
+    "costByCompany": "التكلفة حسب الشركة",
+    "recentActivity": "النشاط الأخير"
+  },
+  "status": {
+    "pending": "قيد الانتظار",
+    "confirmed": "مؤكد",
+    "completed": "مكتمل",
+    "cancelled": "ملغى",
+    "no-show": "لم يحضر",
+    "missed": "فائت",
+    "dropped": "منقطع",
+    "timeout": "انتهت المهلة",
+    "in-progress": "قيد التنفيذ"
+  },
+  "calls": {
+    "id": "المعرف",
+    "time": "الوقت",
+    "caller": "المتصل",
+    "company": "الشركة",
+    "duration": "المدة",
+    "language": "اللغة",
+    "status": "الحالة",
+    "booking": "الحجز",
+    "cost": "التكلفة",
+    "summary": "الملخص",
+    "transcript": "النص",
+    "audio": "الصوت",
+    "events": "الأحداث",
+    "noTranscript": "لا يوجد نص متاح",
+    "searchTranscript": "ابحث في النص...",
+    "exportPdf": "تصدير PDF",
+    "exportJson": "تصدير JSON",
+    "filters": "عوامل التصفية",
+    "minDuration": "الحد الأدنى للمدة",
+    "hasBooking": "لديه حجز",
+    "noCallsFound": "لا توجد مكالمات",
+    "noCallsDescription": "حاول تعديل عوامل التصفية أو نطاق التاريخ."
+  },
+  "callers": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "phone": "الجوال",
+    "totalCalls": "إجمالي المكالمات",
+    "totalDuration": "إجمالي المدة",
+    "totalCost": "إجمالي التكلفة",
+    "lastSeen": "آخر ظهور",
+    "noCallersFound": "لا يوجد متصلون"
+  },
+  "bookings": {
+    "confirmation": "رقم التأكيد",
+    "customer": "العميل",
+    "dateTime": "التاريخ/الوقت",
+    "topic": "الموضوع",
+    "bookedAt": "تم الحجز",
+    "whatsappSent": "واتساب",
+    "notes": "ملاحظات",
+    "addBooking": "إضافة حجز",
+    "noBookingsFound": "لا توجد حجوزات",
+    "rawValue": "القيمة الأصلية:",
+    "needsNormalization": "يحتاج إلى تطبيع"
+  },
+  "costs": {
+    "total": "الإجمالي",
+    "avgPerCall": "متوسط المكالمة",
+    "perBooking": "لكل حجز",
+    "byApi": "التكلفة حسب API",
+    "usageBreakdown": "تفصيل الاستخدام",
+    "editRates": "تعديل أسعار التسعير"
+  },
+  "selectCompany": {
+    "title": "اختر شركة لإدارة {{feature}}",
+    "description": "إعدادات {{feature}} خاصة بكل شركة. اختر شركة للمتابعة، أو بدّل عبر الشريط العلوي."
+  },
+  "errorBoundary": {
+    "title": "حدث خطأ ما",
+    "description": "حدث خطأ غير متوقع. يمكنك إعادة المحاولة أو العودة إلى النظرة العامة."
+  },
+  "a11y": {
+    "skipToContent": "تخطي إلى المحتوى الرئيسي"
+  }
+}

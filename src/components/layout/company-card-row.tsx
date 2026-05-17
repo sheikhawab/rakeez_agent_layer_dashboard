@@ -1,0 +1,65 @@
+import { Check } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+
+import { CommandItem } from '@/components/ui/command'
+import { cn } from '@/lib/utils'
+import type { Company } from '@/types/company'
+
+type CompanyCardRowProps = {
+  /** Pass null for the "All Companies" virtual entry */
+  company: Company | null
+  /** Aggregate stats (used when company is null) */
+  aggregate?: { totalCalls: number; totalCost: number }
+  isSelected: boolean
+  onSelect: () => void
+}
+
+export function CompanyCardRow({
+  company,
+  aggregate,
+  isSelected,
+  onSelect,
+}: CompanyCardRowProps) {
+  const { t, i18n } = useTranslation()
+  const isArabic = i18n.language === 'ar'
+
+  const name = company
+    ? isArabic && company.nameAr
+      ? company.nameAr
+      : company.name
+    : t('companies.all')
+
+  const calls = company?.todaysCalls ?? aggregate?.totalCalls ?? 0
+  const cost = company?.todaysCost ?? aggregate?.totalCost ?? 0
+  const brandColor = company?.brand?.color
+
+  return (
+    <CommandItem
+      value={company?.id ?? 'all'}
+      keywords={[name, company?.name ?? '', company?.nameAr ?? '']}
+      onSelect={onSelect}
+      className="flex items-start gap-3 py-2.5"
+    >
+      <span
+        aria-hidden
+        className={cn(
+          'mt-1 h-2.5 w-2.5 shrink-0 rounded-full',
+          !brandColor && 'bg-muted-foreground/40',
+        )}
+        style={brandColor ? { backgroundColor: brandColor } : undefined}
+      />
+      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+        <span className="truncate text-sm font-medium">
+          <bdi>{name}</bdi>
+        </span>
+        <span className="text-muted-foreground text-xs tabular-nums">
+          {calls} {t('nav.calls').toLowerCase()} · ${cost.toFixed(2)} /{' '}
+          {(cost * 3.75).toFixed(2)} SAR
+        </span>
+      </div>
+      {isSelected && (
+        <Check className="text-muted-foreground mt-1 h-4 w-4 shrink-0" />
+      )}
+    </CommandItem>
+  )
+}

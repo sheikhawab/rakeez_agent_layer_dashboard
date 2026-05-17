@@ -1,0 +1,160 @@
+{
+  "app": {
+    "name": "Mithasii",
+    "tagline": "Rakeez AI Voice Agent Admin"
+  },
+  "nav": {
+    "insights": "Insights",
+    "configuration": "Configuration",
+    "overview": "Overview",
+    "calls": "Calls",
+    "callers": "Callers",
+    "bookings": "Bookings",
+    "costs": "Costs",
+    "prompts": "Prompts",
+    "agent": "Agent",
+    "integrations": "Integrations",
+    "settings": "Settings"
+  },
+  "companies": {
+    "all": "All Companies",
+    "currentlyViewing": "Currently Viewing",
+    "switchCompany": "Switch company",
+    "searchPlaceholder": "Search companies...",
+    "switchedTo": "Switched to {{name}}",
+    "switchedToAll": "Showing all companies"
+  },
+  "topbar": {
+    "search": "Search",
+    "searchPlaceholder": "Search pages, calls, bookings...",
+    "toggleTheme": "Toggle theme",
+    "toggleLanguage": "Toggle language",
+    "notifications": "Notifications"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "english": "English",
+    "arabic": "Arabic"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "viewAll": "View all",
+    "retry": "Retry"
+  },
+  "notFound": {
+    "title": "404 — Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "backToOverview": "Back to Overview"
+  },
+  "common": {
+    "loading": "Loading...",
+    "noData": "No data available",
+    "error": "Something went wrong"
+  },
+  "overview": {
+    "todaysPulse": "Today's Pulse",
+    "live": "Live",
+    "spent": "Spent",
+    "companies": "Companies",
+    "last24h": "Last 24 hours",
+    "activeNow": "Active Now",
+    "inProgress": "in progress",
+    "burnRate": "burn rate",
+    "allQuiet": "All quiet",
+    "conversion": "Conversion",
+    "callsToBookings": "calls → bookings",
+    "avgDuration": "Avg Duration",
+    "costPerBooking": "Cost per Booking",
+    "costTrend": "Cost Trend",
+    "languageSplit": "Language Split",
+    "topCompanies": "Top Companies",
+    "costByCompany": "Cost by Company",
+    "recentActivity": "Recent Activity"
+  },
+  "status": {
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "no-show": "No-show",
+    "missed": "Missed",
+    "dropped": "Dropped",
+    "timeout": "Timeout",
+    "in-progress": "In progress"
+  },
+  "calls": {
+    "id": "ID",
+    "time": "Time",
+    "caller": "Caller",
+    "company": "Company",
+    "duration": "Duration",
+    "language": "Language",
+    "status": "Status",
+    "booking": "Booking",
+    "cost": "Cost",
+    "summary": "Summary",
+    "transcript": "Transcript",
+    "audio": "Audio",
+    "events": "Events",
+    "noTranscript": "No transcript available",
+    "searchTranscript": "Search transcript...",
+    "exportPdf": "Export PDF",
+    "exportJson": "Export JSON",
+    "filters": "Filters",
+    "minDuration": "Min duration",
+    "hasBooking": "Has booking",
+    "noCallsFound": "No calls found",
+    "noCallsDescription": "Try adjusting filters or date range."
+  },
+  "callers": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "totalCalls": "Total calls",
+    "totalDuration": "Total duration",
+    "totalCost": "Total cost",
+    "lastSeen": "Last seen",
+    "noCallersFound": "No callers found"
+  },
+  "bookings": {
+    "confirmation": "Confirmation #",
+    "customer": "Customer",
+    "dateTime": "Date/Time",
+    "topic": "Topic",
+    "bookedAt": "Booked",
+    "whatsappSent": "WhatsApp",
+    "notes": "Notes",
+    "addBooking": "Add booking",
+    "noBookingsFound": "No bookings found",
+    "rawValue": "Raw value:",
+    "needsNormalization": "Needs normalization"
+  },
+  "costs": {
+    "total": "Total",
+    "avgPerCall": "Avg per Call",
+    "perBooking": "Per Booking",
+    "byApi": "Cost by API",
+    "usageBreakdown": "Usage Breakdown",
+    "editRates": "Edit pricing rates"
+  },
+  "selectCompany": {
+    "title": "Select a company to manage {{feature}}",
+    "description": "{{feature}} settings are per-company. Pick one to continue, or switch via the topbar."
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. You can try again or go back to the overview."
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content"
+  }
+}
