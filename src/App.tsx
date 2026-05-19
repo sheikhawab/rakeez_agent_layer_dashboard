@@ -6,8 +6,8 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { router } from '@/routes'
 import '@/i18n'
-import api from '@/lib/api'
-import { useEffect } from 'react'
+// import api from '@/lib/api'
+// import { useEffect } from 'react'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Command as CommandPrimitive } from "cmdk"
 import { SearchIcon } from "lucide-react"
-
 import { cn } from "@/lib/utils"
 import {
   Dialog,
@@ -90,7 +89,7 @@ function CommandList({
       className={cn(
         "max-h-[300px] scroll-py-1 overflow-x-hidden overflow-y-auto",
         className
-      )}
+      )}    
       {...props}
     />
   )
