@@ -24,7 +24,6 @@ import { PageHeader } from '@/components/shared/page-header'
 import { StatusBadge } from '@/components/shared/status-badge'
 import { useBookings } from '@/hooks/use-bookings'
 import { cn } from '@/lib/utils'
-import { mockCompanies } from '@/mocks/companies'
 import type { Booking } from '@/types/booking'
 
 export function BookingsCalendarPage() {
@@ -128,9 +127,6 @@ export function BookingsCalendarPage() {
                     </div>
                     <div className="space-y-1">
                       {dayBookings.slice(0, 3).map((b) => {
-                        const company = mockCompanies.find(
-                          (c) => c.id === b.companyId,
-                        )
                         return (
                           <button
                             key={b.id}
@@ -140,7 +136,7 @@ export function BookingsCalendarPage() {
                             <span
                               className="h-1.5 w-1.5 shrink-0 rounded-full"
                               style={{
-                                backgroundColor: company?.brand?.color ?? 'currentColor',
+                                backgroundColor: 'currentColor',
                               }}
                             />
                             <span className="truncate">

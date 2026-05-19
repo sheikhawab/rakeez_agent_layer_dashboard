@@ -1,0 +1,114 @@
+## Mock Data Structure & Usage
+
+The mock data for the application is primarily stored inside the `src/mocks/` directory.
+This folder contains files such as:
+
+* `calls.ts`
+* `companies.ts`
+* `costs.ts`
+* `transcripts.ts`
+* etc.
+
+These files act as temporary data sources until the real backend APIs are fully integrated.
+
+---
+
+## Main Usage Flow
+
+### 1. `src/data/client.ts` (Main Data Provider)
+
+This is the central data layer of the application.
+
+Almost all mock data files are imported into this file, making it function like a fake API client for the frontend.
+
+It exposes helper functions such as:
+
+* `getCalls()`
+* `getCompanies()`
+* `getUsage()`
+* etc.
+
+These functions are responsible for:
+
+* filtering data
+* sorting data
+* searching records
+* transforming mock responses
+
+before sending the final result to hooks, pages, and UI components across the app.
+
+In short:
+
+`src/data/client.ts` works as the single source of data access for the frontend.
+
+---
+
+## Direct Mock Imports in Pages & Components
+
+Some parts of the application bypass `client.ts` and directly import mock data for lightweight UI rendering or temporary frontend logic.
+
+### `src/pages/calls/calls-list-page.tsx`
+
+Uses:
+
+```ts
+mockCallers
+```
+
+Purpose:
+
+* Access caller information directly
+* Render caller names/details in the calls list
+
+---
+
+### `src/pages/bookings/bookings-calendar-page.tsx`
+
+Uses:
+
+```ts
+mockCompanies
+```
+
+Purpose:
+
+* Render booking/calendar company data directly inside the calendar UI
+
+---
+
+### `src/components/overview/recent-activity-feed.tsx`
+
+Uses:
+
+```ts
+mockCallers
+```
+
+Purpose:
+
+* Show caller names and activity details inside the recent activity feed
+
+---
+
+### `src/pages/costs/costs-page.tsx`
+
+Contains temporary hardcoded mock cost ratios/calculations.
+
+Purpose:
+
+* Simulate API pricing breakdowns
+* Display estimated per-service/API costs
+* Provide UI support until backend billing APIs are implemented
+
+---
+
+## Overall Architecture Summary
+
+* All base/static mock data lives inside `src/mocks/`
+* `src/data/client.ts` acts as the application's fake backend/data provider
+* Pages and components consume this data either:
+
+  * indirectly through `client.ts`
+  * or directly through lightweight mock imports
+
+This setup allows the frontend to be fully developed and tested before real backend integration is completed.

@@ -17,29 +17,25 @@ import {
 } from '@/components/ui/sidebar'
 import type { NavItem as NavItemConfig } from '@/lib/nav-config'
 import { navConfig } from '@/lib/nav-config'
-import { cn } from '@/lib/utils'
-import { allCompaniesAggregate, mockCompanies } from '@/mocks/companies'
+import { useCompanies } from '@/hooks/use-companies'
 import { useSelectedCompany } from '@/store/selected-company'
 
 function CurrentlyViewing() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { selectedCompanyId } = useSelectedCompany()
-  const isArabic = i18n.language === 'ar'
+  const { data: companies = [] } = useCompanies()
 
   const selected =
     selectedCompanyId === 'all'
       ? null
-      : mockCompanies.find((c) => c.id === selectedCompanyId)
+      : companies.find((c) => c.id === selectedCompanyId)
 
-  const name = selected
-    ? isArabic && selected.nameAr
-      ? selected.nameAr
-      : selected.name
-    : t('companies.all')
+  const name = selected ? selected.business_name : t('companies.all')
 
-  const calls = selected?.todaysCalls ?? allCompaniesAggregate.totalCalls
-  const cost = selected?.todaysCost ?? allCompaniesAggregate.totalCost
-  const brandColor = selected?.brand?.color
+  const totalCalls = companies.reduce((s, c) => s + (c.todaysCalls ?? 0), 0)
+  const totalCost = companies.reduce((s, c) => s + (c.todaysCost ?? 0), 0)
+  const calls = selected?.todaysCalls ?? totalCalls
+  const cost = selected?.todaysCost ?? totalCost
 
   return (
     <SidebarGroup>
@@ -48,14 +44,6 @@ function CurrentlyViewing() {
       </SidebarGroupLabel>
       <SidebarGroupContent>
         <div className="flex items-start gap-2 px-2 py-1.5">
-          <span
-            aria-hidden
-            className={cn(
-              'mt-1.5 h-2 w-2 shrink-0 rounded-full',
-              !brandColor && 'bg-muted-foreground/50',
-            )}
-            style={brandColor ? { backgroundColor: brandColor } : undefined}
-          />
           <div className="flex min-w-0 flex-col gap-0.5">
             <span className="truncate text-sm font-medium">
               <bdi>{name}</bdi>

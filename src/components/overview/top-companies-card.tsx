@@ -4,11 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Button } from '@/components/ui/button'
 import { CostPill } from '@/components/shared/cost-pill'
-import { mockCompanies } from '@/mocks/companies'
+import { useCompanies } from '@/hooks/use-companies'
 import { useSelectedCompany } from '@/store/selected-company'
 
 type TopCompaniesCardProps = {
-  /** Already aggregated: companyId → { calls, cost } */
   data:
     | Array<{ companyId: string; calls: number; cost: number }>
     | undefined
@@ -16,9 +15,9 @@ type TopCompaniesCardProps = {
 }
 
 export function TopCompaniesCard({ data, isLoading }: TopCompaniesCardProps) {
-  const { t, i18n } = useTranslation()
-  const isArabic = i18n.language === 'ar'
+  const { t } = useTranslation()
   const { setSelectedCompany } = useSelectedCompany()
+  const { data: companies = [] } = useCompanies()
 
   const ranked = data
     ?.slice()
@@ -45,9 +44,8 @@ export function TopCompaniesCard({ data, isLoading }: TopCompaniesCardProps) {
           </div>
         ) : (
           ranked.map((row, i) => {
-            const company = mockCompanies.find((c) => c.id === row.companyId)
+            const company = companies.find((c) => c.id === row.companyId)
             if (!company) return null
-            const name = isArabic && company.nameAr ? company.nameAr : company.name
             return (
               <Button
                 key={row.companyId}
@@ -60,11 +58,7 @@ export function TopCompaniesCard({ data, isLoading }: TopCompaniesCardProps) {
                   <span className="text-muted-foreground w-4 text-right text-[10px] tabular-nums">
                     {i + 1}.
                   </span>
-                  <span
-                    className="h-2 w-2 shrink-0 rounded-full"
-                    style={{ backgroundColor: company.brand?.color }}
-                  />
-                  <bdi className="truncate text-sm">{name}</bdi>
+                  <bdi className="truncate text-sm">{company.business_name}</bdi>
                 </span>
                 <span className="text-muted-foreground flex items-center gap-3 text-xs tabular-nums">
                   <span>{row.calls}</span>

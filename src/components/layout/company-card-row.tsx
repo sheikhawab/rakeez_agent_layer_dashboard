@@ -2,7 +2,6 @@ import { Check } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { CommandItem } from '@/components/ui/command'
-import { cn } from '@/lib/utils'
 import type { Company } from '@/types/company'
 
 type CompanyCardRowProps = {
@@ -20,34 +19,20 @@ export function CompanyCardRow({
   isSelected,
   onSelect,
 }: CompanyCardRowProps) {
-  const { t, i18n } = useTranslation()
-  const isArabic = i18n.language === 'ar'
+  const { t } = useTranslation()
 
-  const name = company
-    ? isArabic && company.nameAr
-      ? company.nameAr
-      : company.name
-    : t('companies.all')
+  const name = company ? company.business_name : t('companies.all')
 
   const calls = company?.todaysCalls ?? aggregate?.totalCalls ?? 0
   const cost = company?.todaysCost ?? aggregate?.totalCost ?? 0
-  const brandColor = company?.brand?.color
 
   return (
     <CommandItem
       value={company?.id ?? 'all'}
-      keywords={[name, company?.name ?? '', company?.nameAr ?? '']}
+      keywords={[name]}
       onSelect={onSelect}
       className="flex items-start gap-3 py-2.5"
     >
-      <span
-        aria-hidden
-        className={cn(
-          'mt-1 h-2.5 w-2.5 shrink-0 rounded-full',
-          !brandColor && 'bg-muted-foreground/40',
-        )}
-        style={brandColor ? { backgroundColor: brandColor } : undefined}
-      />
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className="truncate text-sm font-medium">
           <bdi>{name}</bdi>

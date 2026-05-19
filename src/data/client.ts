@@ -112,11 +112,14 @@ async function tick<T>(value: T, ms = 120): Promise<T> {
 export const dataClient = {
   /* Companies */
   async getCompanies(): Promise<Company[]> {
-    return tick(mockCompanies)
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/tenants`)
+    return res.json()
   },
 
   async getCompany(id: string): Promise<Company | undefined> {
-    return tick(mockCompanies.find((c) => c.id === id))
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/tenants/${id}`)
+    if (!res.ok) return undefined
+    return res.json()
   },
 
   /* Calls */

@@ -1,32 +1,38 @@
 import { useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
 import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 import { formatCost } from '@/lib/format'
-import { mockCompanies } from '@/mocks/companies'
+import { useCompanies } from '@/hooks/use-companies'
 import type { APIUsage } from '@/types/cost'
+
+const CHART_COLORS = [
+  'var(--color-chart-1)',
+  'var(--color-chart-2)',
+  'var(--color-chart-3)',
+  'var(--color-chart-4)',
+  'var(--color-chart-5)',
+]
 
 type Row = { companyId: string; name: string; cost: number; color: string }
 
 export function CostByCompanyChart({ usage }: { usage: APIUsage[] }) {
-  const { i18n } = useTranslation()
-  const isArabic = i18n.language === 'ar'
+  const { data: companies = [] } = useCompanies()
 
   const data: Row[] = useMemo(() => {
     const byCompany = new Map<string, number>()
     for (const u of usage) {
       byCompany.set(u.companyId, (byCompany.get(u.companyId) ?? 0) + u.totalCost)
     }
-    return mockCompanies
-      .map((c) => ({
+    return companies
+      .map((c, i) => ({
         companyId: c.id,
-        name: isArabic && c.nameAr ? c.nameAr : c.name,
+        name: c.business_name,
         cost: byCompany.get(c.id) ?? 0,
-        color: c.brand?.color ?? 'var(--color-chart-1)',
+        color: CHART_COLORS[i % CHART_COLORS.length],
       }))
       .filter((r) => r.cost > 0)
       .sort((a, b) => b.cost - a.cost)
-  }, [usage, isArabic])
+  }, [usage, companies])
 
   if (data.length === 0) {
     return (

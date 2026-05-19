@@ -18,7 +18,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { useCalls } from '@/hooks/use-calls'
 import { useOverviewStats } from '@/hooks/use-costs'
 import { useUsage } from '@/hooks/use-costs'
-import { mockCompanies } from '@/mocks/companies'
+import { useCompanies } from '@/hooks/use-companies'
 import { useSelectedCompany } from '@/store/selected-company'
 
 /**
@@ -38,11 +38,11 @@ function buildActivityTrend(calls: { startedAt: string }[]): number[] {
 }
 
 export function OverviewPage() {
-  const { t, i18n } = useTranslation()
-  const isArabic = i18n.language === 'ar'
+  const { t } = useTranslation()
   const { selectedCompanyId } = useSelectedCompany()
   const isAggregate = selectedCompanyId === 'all'
 
+  const { data: companies = [] } = useCompanies()
   const { data: stats, isLoading: statsLoading } = useOverviewStats()
   const { data: calls, isLoading: callsLoading } = useCalls()
   const { data: usage, isLoading: usageLoading } = useUsage()
@@ -95,8 +95,8 @@ export function OverviewPage() {
   const scopeName = isAggregate
     ? t('companies.all')
     : (() => {
-        const c = mockCompanies.find((x) => x.id === selectedCompanyId)
-        return c ? (isArabic && c.nameAr ? c.nameAr : c.name) : selectedCompanyId
+        const c = companies.find((x) => x.id === selectedCompanyId)
+        return c ? c.business_name : selectedCompanyId
       })()
 
   return (

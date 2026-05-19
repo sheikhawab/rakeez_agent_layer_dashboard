@@ -3,18 +3,13 @@ import { useTranslation } from 'react-i18next'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { mockCompanies } from '@/mocks/companies'
+import { useCompanies } from '@/hooks/use-companies'
 import { useSelectedCompany } from '@/store/selected-company'
 
-/**
- * Empty state shown on per-company-only pages (Prompts, Agent, Integrations)
- * when "All Companies" is the current scope. Lets the user pick a company
- * inline without going through the topbar switcher.
- */
 export function SelectCompanyPrompt({ feature }: { feature: string }) {
-  const { t, i18n } = useTranslation()
-  const isArabic = i18n.language === 'ar'
+  const { t } = useTranslation()
   const { setSelectedCompany } = useSelectedCompany()
+  const { data: companies = [] } = useCompanies()
 
   return (
     <div className="flex items-center justify-center p-6">
@@ -32,25 +27,16 @@ export function SelectCompanyPrompt({ feature }: { feature: string }) {
             </p>
           </div>
           <div className="mx-auto flex max-w-md flex-wrap justify-center gap-2 pt-2">
-            {mockCompanies.map((company) => {
-              const name = isArabic && company.nameAr ? company.nameAr : company.name
-              return (
-                <Button
-                  key={company.id}
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setSelectedCompany(company.id)}
-                  className="gap-2"
-                >
-                  <span
-                    aria-hidden
-                    className="h-2 w-2 rounded-full"
-                    style={{ backgroundColor: company.brand?.color }}
-                  />
-                  <bdi>{name}</bdi>
-                </Button>
-              )
-            })}
+            {companies.map((company) => (
+              <Button
+                key={company.id}
+                variant="outline"
+                size="sm"
+                onClick={() => setSelectedCompany(company.id)}
+              >
+                <bdi>{company.business_name}</bdi>
+              </Button>
+            ))}
           </div>
         </CardContent>
       </Card>
