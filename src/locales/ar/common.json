@@ -14,7 +14,8 @@
     "prompts": "الموجهات",
     "agent": "الوكيل",
     "integrations": "التكاملات",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "companies": "الشركات"
   },
   "companies": {
     "all": "كل الشركات",

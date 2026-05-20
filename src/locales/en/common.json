@@ -14,7 +14,8 @@
     "prompts": "Prompts",
     "agent": "Agent",
     "integrations": "Integrations",
-    "settings": "Settings"
+    "settings": "Settings",
+    "companies": "Companies"
   },
   "companies": {
     "all": "All Companies",

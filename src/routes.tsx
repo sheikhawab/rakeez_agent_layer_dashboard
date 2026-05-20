@@ -15,6 +15,7 @@ import { PromptsPage } from './pages/prompts/prompts-page'
 import { AgentConfigPage } from './pages/agent/agent-config-page'
 import { IntegrationsPage } from './pages/integrations/integrations-page'
 import { SettingsPage } from './pages/settings/settings-page'
+import { CompaniesNewPage } from './pages/companies/companies-new-page'
 import { NotFoundPage } from './pages/not-found-page'
 
 export const router = createBrowserRouter([
@@ -34,6 +35,7 @@ export const router = createBrowserRouter([
       { path: '/agent', element: <AgentConfigPage />, errorElement: <RouteErrorBoundary /> },
       { path: '/integrations', element: <IntegrationsPage />, errorElement: <RouteErrorBoundary /> },
       { path: '/settings', element: <SettingsPage />, errorElement: <RouteErrorBoundary /> },
+      { path: '/companies/new', element: <CompaniesNewPage />, errorElement: <RouteErrorBoundary /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

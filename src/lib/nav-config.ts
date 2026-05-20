@@ -9,6 +9,7 @@ import {
   Bot,
   Plug,
   Settings,
+  Building2,
 } from 'lucide-react'
 
 export type NavItem = {
@@ -44,6 +45,7 @@ export const navConfig: NavGroup[] = [
       { to: '/agent', icon: Bot, labelKey: 'agent' },
       { to: '/integrations', icon: Plug, labelKey: 'integrations' },
       { to: '/settings', icon: Settings, labelKey: 'settings' },
+      { to: '/companies/new', icon: Building2, labelKey: 'companies' },
     ],
   },
 ]
